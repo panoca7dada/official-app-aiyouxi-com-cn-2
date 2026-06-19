@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://panoca7dada.github.io/official-app-aiyouxi-com-cn-2/sitemap.xml
