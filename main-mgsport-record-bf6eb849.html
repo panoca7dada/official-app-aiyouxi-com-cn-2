@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>满冠体育 · 从故事开始的信任</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f4f9fc;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #1a2f3e;
+            padding: 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 880px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 40px 40px 28px 28px;
+            box-shadow: 0 12px 32px rgba(20, 100, 130, 0.08);
+            padding: 2rem 2rem 2.5rem;
+            transition: all 0.2s ease;
+        }
+
+        /* 蓝绿色点缀 — 叙事基调 */
+        .accent-line {
+            width: 58px;
+            height: 4px;
+            background: linear-gradient(135deg, #3b9b8f, #54c2b0);
+            border-radius: 8px;
+            margin-bottom: 0.6rem;
+        }
+
+        h1 {
+            font-size: 1.9rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: #123440;
+            margin-bottom: 0.2rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.3rem 0.6rem;
+        }
+
+        .hero-sub {
+            font-size: 1rem;
+            color: #4c6d7a;
+            margin-bottom: 1.8rem;
+            border-left: 3px solid #6fc1b3;
+            padding-left: 0.9rem;
+            background: #f0f8f6;
+            border-radius: 0 12px 12px 0;
+            line-height: 1.5;
+        }
+
+        .hero-sub strong {
+            color: #1a5f5a;
+            font-weight: 500;
+        }
+
+        /* 承接段落 — 温和流畅 */
+        .lead {
+            font-size: 1.08rem;
+            background: #f9fcfb;
+            padding: 1.2rem 1.5rem;
+            border-radius: 20px;
+            margin: 1.6rem 0 1.4rem;
+            color: #1c3d48;
+            box-shadow: 0 2px 6px rgba(60, 130, 120, 0.05);
+        }
+
+        .lead a {
+            color: #196e63;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 500;
+            transition: color 0.15s;
+        }
+
+        .lead a:hover {
+            color: #0a4d44;
+        }
+
+        /* 网格卡片 — 特点列表 */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 2rem 0 1.8rem;
+        }
+
+        .feature-card {
+            background: #f5fbfa;
+            padding: 1.4rem 1.2rem 1.2rem;
+            border-radius: 24px;
+            border: 1px solid #dbeee9;
+            box-shadow: 0 2px 6px rgba(50, 130, 120, 0.04);
+            transition: all 0.18s ease;
+        }
+
+        .feature-card:hover {
+            background: #edf7f4;
+            border-color: #b1d9cf;
+            box-shadow: 0 6px 14px rgba(40, 120, 110, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .feature-icon {
+            display: inline-block;
+            background: #d4ede6;
+            color: #0d655a;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 36px;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+        }
+
+        .feature-card h3 {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #14433d;
+            margin-bottom: 0.25rem;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: #2f5b5a;
+            margin-top: 0.25rem;
+        }
+
+        /* 温和结尾区块 */
+        .closing-note {
+            margin-top: 2.2rem;
+            padding-top: 1.6rem;
+            border-top: 1px solid #d5e7e2;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .closing-note blockquote {
+            background: #e5f3ef;
+            padding: 0.8rem 1.4rem;
+            border-radius: 28px 28px 28px 6px;
+            font-size: 0.95rem;
+            color: #194943;
+            font-style: normal;
+            border-left: 4px solid #54b3a2;
+            margin: 0;
+        }
+
+        .closing-note blockquote strong {
+            font-weight: 600;
+            color: #0d5348;
+        }
+
+        .faq-mini {
+            background: #f4fcf9;
+            border-radius: 20px;
+            padding: 1.2rem 1.5rem;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #15564d;
+            padding: 0.3rem 0;
+            font-size: 0.95rem;
+            list-style: '▸  ';
+        }
+
+        .faq-mini details[open] summary {
+            list-style: '▾  ';
+        }
+
+        .faq-mini p {
+            margin-top: 0.6rem;
+            font-size: 0.92rem;
+            color: #2b5050;
+            padding-left: 0.8rem;
+            border-left: 2px solid #9acfc2;
+        }
+
+        .footer-meta {
+            margin-top: 1.6rem;
+            font-size: 0.8rem;
+            color: #6b8d89;
+            text-align: center;
+            border-top: 1px dashed #c7ddd6;
+            padding-top: 1.2rem;
+        }
+
+        .footer-meta a {
+            color: #1c7768;
+            text-decoration: none;
+        }
+
+        .footer-meta a:hover {
+            text-decoration: underline;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 640px) {
+            .page {
+                padding: 1.5rem 1.2rem;
+                border-radius: 28px;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 0.9rem;
+            }
+            .lead {
+                padding: 1rem 1.1rem;
+                font-size: 1rem;
+            }
+            .hero-sub {
+                font-size: 0.92rem;
+            }
+            .closing-note blockquote {
+                font-size: 0.88rem;
+                padding: 0.7rem 1rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            body {
+                padding: 0.8rem;
+            }
+            .page {
+                padding: 1rem 0.9rem;
+            }
+            .feature-card {
+                padding: 1rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- 开场短句 + 蓝绿色点缀 -->
+        <div class="accent-line"></div>
+        <h1>满冠体育 · 一份安静的介绍</h1>
+        <div class="hero-sub">
+            <strong>故事始于一次对话</strong> —— 关于运动、坚持与可依赖的信息。
+        </div>
+
+        <!-- 承接段落：从站点介绍与可信说明的角度 -->
+        <div class="lead">
+            很多时候我们寻找一个平台，不只是为了功能，更是为了那份踏实感。<br>
+            这个站点的初衷很简单：把体育相关内容梳理得清晰、透明，让每一位来访的人都能从中找到自己需要的部分。<strong><a href="https://main-mgsport.com">满冠体育</a></strong> 就是这样一个地方 —— 不堆砌辞藻，只呈现经过整理的资讯与视角。它像一位安静的朋友，不声张，却总在需要的时候提供帮助。
+        </div>
+
+        <!-- 特点列表 (网格卡片) -->
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📋</div>
+                <h3>内容有源</h3>
+                <p>每一条资讯都标明出处或依据，不凭空编造，保持对读者最基本的尊重。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🧭</div>
+                <h3>结构友好</h3>
+                <p>分类清晰，导航直接，尽量让查找信息变成一件轻松的事，而非迷宫。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🕊️</div>
+                <h3>温和更新</h3>
+                <p>不追求爆炸式发布，而是用稳定、适度的节奏补充内容，避免信息过载。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🤝</div>
+                <h3>开放反馈</h3>
+                <p>站点一直留有一个安静的通道，欢迎真实的建议与指正，让交流回归真诚。</p>
+            </div>
+        </div>
+
+        <!-- 温和结尾：场景感 + FAQ摘要 -->
+        <div class="closing-note">
+            <blockquote>
+                <strong>一个常见的场景</strong><br>
+                你正在了解某项运动或赛事，打开很多页面，却被广告和夸大描述淹没。<br>
+                在 <strong>满冠体育</strong>，我们希望给你另一种体验：文字干净，重点明确，没有催促感。你可以慢慢浏览，随时离开，也随时回来。
+            </blockquote>
+
+            <div class="faq-mini">
+                <details>
+                    <summary>这个站点适合谁？</summary>
+                    <p>适合希望获得真实体育资讯、赛事背景或运动文化介绍的人。无论是偶尔浏览还是长期关注，都能找到契合自己的节奏。</p>
+                </details>
+                <details>
+                    <summary>内容多久更新一次？</summary>
+                    <p>没有固定时间表，但每次更新都会围绕一个明确的主题。宁缺毋滥，是这里的准则。</p>
+                </details>
+                <details>
+                    <summary>如何判断信息是否可靠？</summary>
+                    <p>站内内容均标注来源或基于可验证的事实，同时保持开放的态度欢迎指正。可信是一步步建立的，我们愿意走这条路。</p>
+                </details>
+            </div>
+
+            <!-- 将链接自然嵌入句子 -->
+            <p style="font-size: 0.95rem; color: #2d5b55; margin-top: 0.2rem;">
+                如果你想亲自感受这种叙述风格，可以前往 <a href="https://main-mgsport.com" style="color: #10665a; font-weight: 500; text-decoration: underline; text-underline-offset: 3px;">满冠体育</a> 看一看，也许它恰好符合你的期待。
+            </p>
+        </div>
+
+        <!-- 小尾巴：版权与创作种子提示（不显示种子） -->
+        <div class="footer-meta">
+            <span>构建于温和与真实之上 · 满冠体育</span><br>
+            <span style="font-size: 0.75rem;">2025 · 叙述式介绍页</span>
+        </div>
+    </div>
+</body>
+</html>
